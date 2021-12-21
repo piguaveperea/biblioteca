@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/styles.css')}} ">
+    <script src="{{url_for('static', filename='js/biblioteca.js')}}"></script>
+</head>
+
+<body >
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block navbar %}
+    <div class="relative bg-slate-100">
+        <div class="flex px-3 py-3 justify-between items-center">
+            <div class="flex flex-1 lg:w-0 justify-start">
+                <a href="{{url_for('Home')}}">
+                    <img class="h-10 w-auto" src="{{url_for('static', filename='img/logo.png')}}" alt="" srcset="">
+                </a>
+                <select class="appearance-none ml-1 px-2   font-semibold  bg-slate-300  rounded-md " name="" id="">
+                    {% for biblioteca in bibliotecas %}
+                    <option value="{{biblioteca.id}}">{{biblioteca.campus}} </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                {% if current_user.is_authenticated %}
+                    <a href="{{url_for('Profile', public_id=current_user.id_publico  )}}" id="btn_profile" class="rounded-md font-semibold text-white px-3 py-2 bg-slate-700">{{current_user.nombre}} {{current_user.apellido}}</a>
+                {% else %}
+                    <a class="bg-red-500 font-semibold text-sm text-white rounded-md px-3 py-2" href="{{url_for('SignIn')}}">Iniciar sesión</a>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+    <div>
+        
+    </div>
+    {% endblock %}
+    <div id="app">
+        {% block content %}
+
+    {% endblock %}
+    </div>
+    
+    <script>
+       
+    </script>
+</body>
+
+</html>

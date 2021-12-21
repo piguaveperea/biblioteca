@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block title %}Libro{%  endblock %}
+{% block content %}
+<div class="border-2 p-3 border-black">
+    <form action="" method="post">
+        <h1 class="text-2xl font-semibold " >Detalle del libro</h1>
+        <div>
+            <label for="">Titulo</label>
+            <input name="libro" class=" rounded-md p-2 font-semibold  bg-slate-300" disabled value="{{libro.titulo}}"" type="text">
+        </div>
+        <div>
+            <label for="">Mesa</label>
+            <select name="" id="">
+                <option value=""></option>
+            </select>
+        </div>
+        <div>
+            <label for="">Silla</label>
+            <select name="" id="">
+                <option value=""></option>
+            </select>
+        </div>
+        <div>
+            <button type="submit">Guardar</button>
+        </div>
+        
+    </form>
+    
+</div>
+{% endblock %}

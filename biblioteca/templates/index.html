@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block title %} Bienvenido {% endblock %}
+{% block content %}
+
+<div class=" flex w-auto mx-auto container px-3 py-4 justify-center ">
+    <section class=" bg-blue-200 rounded-md py-7">
+        <h1 class="font-extrabold  text-center text-6xl ">Bienvenido a la Gestion Bibliotecaria de la Universidad Luis Vargas Torres</h1>
+        <div class="mt-2 flex justify-center">
+            <a class=" text-sm font-semibold text-white bg-blue-700 px-3 py-2 rounded-md" href="{{url_for('Profile', public_id=current_user.id_publico  )}}">Comenzar</a>
+        </div>
+    </section>
+</div>
+<script>
+</script>
+{% endblock %}

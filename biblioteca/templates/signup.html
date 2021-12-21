@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% block title %} Universidad Luis Vargas Torres {% endblock %}
+{% block content %}
+<div class="flex items-center py-2 px-3 justify-center ">
+
+    <div class="max-w-md w-full">
+        <img class="h-14 mx-auto " src="{{url_for('static', filename='img/logo.png')}}" alt="">
+        <div>
+            <h1 class="text-3xl font-extrabold text-center ">Crear cuenta</h1>
+            <p class="mt-2 text-center text-sm text-gray-600">
+                Si ya tienes una cuenta
+                <a href="{{url_for('SignIn')}}" class="font-medium text-indigo-600 hover:text-indigo-500">
+                  Iniciar sesión
+                </a>
+        </div>
+        <form class="space-y-2"  method="post">
+            <div>
+                <label class="font-semibold" for="">Cedula</label>
+                <input name="ci" placeholder="Cedula" type="text"
+                    class=" text-sm  block focus:outline-none border-gray-400 appearance-none w-full rounded-md focus:border-indigo-400 focus:ring-indigo-400 border px-2 py-2 ">
+            </div>
+            <div class=" gap-2 grid  md:grid-cols-2 grid-cols-1">
+                <div class="">
+                    <label class="font-semibold" for="">Nombres</label>
+                    <input name="nombre" placeholder="Nombres" type="text"
+                        class=" text-sm  focus:outline-none appearance-none border-gray-400 w-full rounded-md focus:border-indigo-400 focus:ring-indigo-400 border px-3 py-2 ">
+                </div>
+                <div>
+                    <label class="font-semibold" for="">Apellidos</label>
+                    <input name="apellido" placeholder="Apellidos" type="text"
+                        class=" text-sm  focus:outline-none appearance-none w-full rounded-md border-gray-400 focus:border-indigo-400 focus:ring-indigo-400 border px-3 py-2 ">
+                </div>
+
+            </div>
+            <div>
+                <label class="font-semibold" for="">Correo electronico</label>
+                <input name="correo" placeholder="correo electronico" type="email"
+                    class=" text-sm  focus:outline-none appearance-none w-full rounded-md border-gray-400 focus:border-indigo-400 focus:ring-indigo-400 border px-3 py-2 ">
+            </div>
+            <div>
+                <label class="font-semibold" for="">Contraseña</label>
+                <input name="clave" placeholder="contraseña" type="password"
+                    class=" text-sm  focus:outline-none appearance-none w-full rounded-md border-gray-400 focus:border-indigo-400 focus:ring-indigo-400 border px-3 py-2 ">
+            </div>
+            <div>
+                <button class="w-full text-white font-semibold text-sm  bg-green-600 rounded-md py-2 px-6"
+                    type="submit">Crear cuenta</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+{% endblock %}

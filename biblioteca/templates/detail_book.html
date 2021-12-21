@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container px-3">
+    <div class="grid  gap-3 md:grid-cols-2">
+        <div>
+            <h1>Libro</h1>
+            <div class="border p-3 rounded-md">
+                <h2 class="text-2xl font-extrabold">{{libro.titulo}}</h2>
+                <h3>Dellates</h3>
+                <div class="p-4 border">
+                    <p>Autor <span>{{libro.autor}}</span></p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h1>Usuario</h1>
+            <div class="">
+                <h2 class="text-2xl font-extrabold">{{libro.usuario.nombre}} {{libro.usuario.apellido}} </h2>
+                <p>{{libro.usuario.sillas.nombre}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="">
+    <form  class="p-6" action="" method="post">
+        <input class="w-full rounded-md px-3 py-3 border-2 focus:outline-none appearance-none focus:border-indigo-400 focus:ring-indigo-400"  placeholder="titulo... autor"  name="book" type="text">
+    </form>
+</div>
+<div class="container mx-auto">
+    <div class="grid lg:grid-cols-3 md:grid-cols-2  grid-cols-1 gap-3">
+        {%  for libro in libros %}
+        <div class="border-2 rounded-md p-3 ">
+            {% if libro.ocupado %}
+            <div class="flex justify-end">
+                <p class="bg-red-500 px-2 rounded-md text-sm font-semibold text-white ">ocupado</p>
+            </div>
+            {% else %}
+            <div class="flex justify-end">
+                <p class="bg-green-500 px-2 rounded-md text-sm font-semibold text-white ">libre</p>
+            </div>
+            {% endif %}
+            <h1 class="text-2xl font-extrabold">{{libro.titulo}}</h1>
+            <div class="">
+                <h2 class="text-lg font-semibold ">Detalles</h2>
+                <p>Autor <span class="bg-indigo-600 px-4 text-sm font-semibold text-white rounded-md ">{{libro.autor}}</span> </p>
+                <p>Biblioteca {{libro.biblioteca.campus}} </p>
+            </div>
+            <div class="flex justify-end ">
+                {% if libro.ocupado %}
+                <a class="mr-2 px-3 py-2 text-sm font-semibold rounded-lg  bg-blue-300 " href="{{url_for('DetailBook',id_book=libro.id)}}">Ver</a>
+                {% else %}
+                <a class="bg-green-700 px-3 py-2 text-sm rounded-md font-semibold text-white" href="{{url_for('TakeBook', id_book=libro.id )}}">Prestar</a>
+                {% endif %}
+                
+            </div>
+        </div>
+            
+        {% endfor %}
+    </div>
+    
+</div>
+
+{% endblock %}
